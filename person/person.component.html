@@ -1,0 +1,15 @@
+<p>
+
+    <u>PERSON</u><br>
+    name: <span [textContent]="person.name"></span><br>
+    add_on:{{person.added_on}} <br>
+    instructor:{{person.instructor}} <br>
+    <span id="butt">
+        <button id=show
+                (click)="onView()"
+        >show more</button><br>
+        <button id=delete
+                (click)="onDelete($event,person.name)"
+        >delete</button>
+    </span>
+</p>
