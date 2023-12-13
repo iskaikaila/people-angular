@@ -3,8 +3,11 @@
 
 <!-- 搜索框，绑定到query属性，用于过滤人物列表 -->
 SEARCH:<input type="text" [(ngModel)]="query">
-
 <!-- {{query}} -->
+
+<p>
+    Number of people: {{ people | search:query | countPeople }}
+</p>
 
 <!-- 循环显示人物列表 -->
 <!-- 使用*ngFor指令遍历people数组，使用管道过滤符合搜索条件的人物 -->
