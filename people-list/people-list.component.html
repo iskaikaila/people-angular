@@ -1,15 +1,18 @@
+<!-- 添加新人物的链接 -->
 <a routerLink="/person/add">ADD A NEW PERSON</a><br>
 
-
+<!-- 搜索框，绑定到query属性，用于过滤人物列表 -->
 SEARCH:<input type="text" [(ngModel)]="query">
+<!-- 注释掉的部分用于显示当前的查询字符串，便于调试 -->
 <!-- {{query}} -->
 
-
+<!-- 循环显示人物列表 -->
+<!-- 使用*ngFor指令遍历people数组，使用管道过滤符合搜索条件的人物 -->
 <app-person
-    *ngFor="let p of people |search:query"
-    [person]="p"
-    (delete)="onPersonDelete($event)"
-
+    *ngFor="let p of people | search:query"
+    [person]="p"  <!-- 将循环中的每个人物对象传递给app-person组件 -->
+    (delete)="onPersonDelete($event)"  <!-- 监听删除事件，并调用onPersonDelete方法 -->
 ></app-person>
 
+<!-- 添加人物的表单组件 -->
 <app-person-add-form></app-person-add-form>
