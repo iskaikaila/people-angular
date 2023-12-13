@@ -1,36 +1,44 @@
+<!-- 表单标签，绑定Angular的FormGroup对象，提交时调用onSubmit方法 -->
 <form
     [formGroup]="form"
     (ngSubmit)="onSubmit(form.value)"
 >
-    <fieldset
-        class="d-grid gap-2 col-12"
-    >
+    <!-- fieldset用于将表单元素分组，class设置了样式 -->
+    <fieldset class="d-grid gap-2 col-12">
+        <!-- 表单的标题 -->
         <legend>ADD PERSON</legend>
+
+        <!-- 名字输入框 -->
         <input 
             type="text"
             name="name"
-            placeholder="NAME"
-            formControlName="name"
+            placeholder="NAME"  <!-- 占位符显示“NAME” -->
+            formControlName="name"  <!-- 绑定到FormGroup中的name字段 -->
         >
+
+        <!-- 年龄输入框 -->
         <input 
             type="number"
             name="age"
-            formControlName="age"
-            placeholder="AGE"
+            formControlName="age"  <!-- 绑定到FormGroup中的age字段 -->
+            placeholder="AGE"  <!-- 占位符显示“AGE” -->
         >
+
+        <!-- 讲师复选框 -->
         <div class="form-check">
             <input 
                 type="checkbox"
                 name="instructor_checkbox"
                 id="instructor_checkbox"
-                formControlName="instructor"
+                formControlName="instructor"  <!-- 绑定到FormGroup中的instructor字段 -->
                 class="form-check-input"
             >
             <label class="form-check-label" for="instructor_checkbox">
-                Instructor
+                Instructor  <!-- 复选框的标签 -->
             </label>
         </div>
 
+        <!-- 保存按钮，当表单无效时禁用 -->
         <button 
             class="btn btn-outline-primary"
             [disabled]="!form.valid"
