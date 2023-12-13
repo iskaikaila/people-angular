@@ -1,15 +1,26 @@
 <p>
-
+    <!-- 使用<u>标签为"PERSON"添加下划线，表示标题或重要性 -->
     <u>PERSON</u><br>
+    
+    <!-- 显示人物的名字 -->
     name: <span [textContent]="person.name"></span><br>
+
+    <!-- 使用Angular的插值表达式展示person对象的added_on属性 -->
     add_on:{{person.added_on}} <br>
+
+    <!-- 使用Angular的插值表达式展示person对象的instructor属性 -->
     instructor:{{person.instructor}} <br>
+
+    <!-- id="butt"的span标签包裹两个按钮 -->
     <span id="butt">
-        <button id=show
+        <!-- "show more"按钮，点击时调用onView()方法 -->
+        <button id="show"
                 (click)="onView()"
         >show more</button><br>
-        <button id=delete
-                (click)="onDelete($event,person.name)"
+
+        <!-- "delete"按钮，点击时调用onDelete()方法，并传递$event对象和person.name作为参数 -->
+        <button id="delete"
+                (click)="onDelete($event, person.name)"
         >delete</button>
     </span>
 </p>
